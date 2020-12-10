@@ -1,5 +1,5 @@
 # This script makes a README.md with links to all my solutions.
-# Run it with 'ruby makeReadme.rb'.
+# Run it with 'ruby generateReadme.rb' 
 # This was written using Ruby 2.5.1
 # by Zack Sargent
 
