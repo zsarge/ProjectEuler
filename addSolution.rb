@@ -40,7 +40,8 @@ if File.directory?("solutions/#{problemNumber}")
   exit(1)
 end
 
-template = "# https://projecteuler.net/problem=#{problemNumber}
+template = "\
+# https://projecteuler.net/problem=#{problemNumber}
 # Run with: 'ruby #{filename}'
 # using Ruby 2.5.1
 # by Zack Sargent
