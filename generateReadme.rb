@@ -89,13 +89,14 @@ end
 
 def makeLink(files, dirName)
   raise "Multiple files not implemented." unless files.size == 1
-  return "[#{dirName}](solutions/#{dirName}/#{files[0]})"
+  return "[#{dirName.to_i}](solutions/#{dirName}/#{files[0]})"
 end
 
 # takes a name of solution and the solutions,
 # and returns either a link to the solution
 # or the name if the solution doesn't exist
 def getLink(name, solutions)
+  name = name.to_i
   if solutions.key?(name)
     return solutions[name]
   else
@@ -109,12 +110,12 @@ names = getFilesInDir("solutions")
 files = {}
 names.each do |name|
   solutions = getFilesInDir("solutions/#{name}")
-  files.store(name, makeLink(solutions, name))
+  files.store(name.to_i, makeLink(solutions, name))
 end
 
 arr = (1..100).to_a
-arr = arr.map(&:to_s)
 arr = arr.map { |num| getLink(num, files) }
+arr = arr.map(&:to_s)
 
 # represent dir as array of objects where
 # dir = [

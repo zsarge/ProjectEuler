@@ -33,9 +33,10 @@ else
 end
 
 filename = "solve#{problemNumber}.rb"
+path = "solutions/#{problemNumber.rjust(3, "0")}"
 
 # do not overwrite existing files
-if File.directory?("solutions/#{problemNumber}")
+if File.directory?(path)
   puts "Directory Exists. Exiting" 
   exit(1)
 end
@@ -51,7 +52,7 @@ template = "\
 puts 'Hello World!'
 "
 
-Dir.mkdir("solutions/#{problemNumber}")
-File.write("solutions/#{problemNumber}/#{filename}", template, mode: "w")
+Dir.mkdir(path)
+File.write("#{path}/#{filename}", template, mode: "w")
 
-puts "created solutions/#{problemNumber}/#{filename}"
+puts "created #{path}/#{filename}"
