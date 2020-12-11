@@ -2,13 +2,14 @@
 
 These are my solutions for various [Project Euler](https://projecteuler.net) problems.
 
-I use Project Euler mainly for programming challenges, but it also is nice to practice mathematical thinking.
-
-Every solution gets its own directory, because I plan on varying the languages I use, and this keeps everything uniform.
+I use Project Euler mainly for programming challenges, but it also is nice for practicing mathematical reasoning.
 
 ## My solutions:
-
-
+<!--- 
+  This table is automatically generated and is best viewed with line wrap off.
+  I did consider reference style links, and they didn't seem much better. 
+  Just try and view the formatted table, if you can.
+-->
 |                              |                              |    |    |    |    |    |    |    |     |
 | ---------------------------- | ---------------------------- | -- | -- | -- | -- | -- | -- | -- | --- |
 | [1](solutions/001/solve1.rb) | [2](solutions/002/solve2.rb) | 3  | 4  | 5  | 6  | 7  | 8  | 9  | 10  |
@@ -22,3 +23,12 @@ Every solution gets its own directory, because I plan on varying the languages I
 | 81                           | 82                           | 83 | 84 | 85 | 86 | 87 | 88 | 89 | 90  |
 | 91                           | 92                           | 93 | 94 | 95 | 96 | 97 | 98 | 99 | 100 |
 
+<br>
+I have some scripts set up to make working on problems a smoother experience:
+
+ - [`addSolution.rb`](addSolution.rb) takes a problem number, creates the associated folder and file, and copies the problem's prompt from the website.
+ - [`generateReadme.rb`](generateReadme.rb) generates this readme based on the files in the solutions folder.
+
+Every solution gets its own directory because I plan on varying the languages I use, and this keeps everything uniform.
+
+Code by [Zack Sargent](https://github.com/zsarge).
