@@ -21,9 +21,6 @@ def getPrimeFactors(goal)
   return factors
 end
 
-# I have not tested this on anything but this one number,
-# but I'm also trying to solve the problems as fast as 
-# possible, so there's that.
 p getPrimeFactors(600851475143).last
 
 # -> 6857

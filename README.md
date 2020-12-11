@@ -4,6 +4,12 @@ These are my solutions for various [Project Euler](https://projecteuler.net) pro
 
 I use Project Euler mainly for programming challenges, but it also is nice for practicing mathematical reasoning.
 
+I hope these solutions may be instructive to those who are interested.
+
+Note:
+
+> Members found to be spoiling problems beyond #100 will have their accounts locked.
+
 ## My solutions:
 <!--- 
   This table is automatically generated and is best viewed with line wrap off.
