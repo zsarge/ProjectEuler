@@ -92,8 +92,13 @@ def getLink(name, solutions)
   end
 end
 
-
 names = getFilesInDir("solutions")
+
+# represent dir as object where
+# dir = {
+#   folder name as integer => content to go in table cell,
+#   folder name as integer => content to go in table cell,
+# }
 
 files = {}
 names.each do |name|
@@ -104,12 +109,6 @@ end
 arr = (1..100).to_a
 arr = arr.map { |num| getLink(num, files) }
 arr = arr.map(&:to_s)
-
-# represent dir as array of objects where
-# dir = [
-#   "1" => link to first answer,
-#   "2" => link to second answer,
-# ]
 
 # Create blank space in header:
 10.times do arr.prepend(" ") end
