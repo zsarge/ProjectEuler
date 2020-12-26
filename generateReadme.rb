@@ -114,7 +114,6 @@ arr = arr.map(&:to_s)
 10.times do arr.prepend(" ") end
 
 TABLE = makeTable(arr, 10)
-puts TABLE
 
 # Stop content generation
 # Start writing to file
@@ -153,3 +152,5 @@ Code by [Zack Sargent](https://github.com/zsarge).
 File.write("README.md", content, mode: "w")
 
 # Stop writing to file
+
+puts "Success"
