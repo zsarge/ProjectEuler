@@ -103,7 +103,7 @@ names = getFilesInDir("solutions")
 files = {}
 names.each do |name|
   solutions = getFilesInDir("solutions/#{name}")
-  files.store(name.to_i, makeLink(solutions, name))
+  files.store(name.to_i, makeLink(solutions, name)) 
 end
 
 arr = (1..100).to_a
