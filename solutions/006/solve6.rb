@@ -32,4 +32,4 @@ __END__
 (1..100).map{|n| n**2}.sum
 # squares all numbers from 1 to 100, and gets the sum
 
-# The sqare of sums is then subtracted from the sum of squares.
+# The square of sums is then subtracted from the sum of squares.
