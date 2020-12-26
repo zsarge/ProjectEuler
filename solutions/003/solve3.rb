@@ -8,7 +8,7 @@
 # The prime factors of 13195 are 5, 7, 13 and 29.
 # What is the largest prime factor of the number 600851475143 ?
 
-def getPrimeFactors(goal)
+def get_prime_factors(goal)
   factors = []
   i = 1
   while i < (goal)
@@ -21,6 +21,6 @@ def getPrimeFactors(goal)
   return factors
 end
 
-p getPrimeFactors(600851475143).last
+p get_prime_factors(600851475143).last
 
 # -> 6857

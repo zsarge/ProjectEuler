@@ -14,11 +14,11 @@
 # 2) Filter those that are palendromic
 # 3) Find the largest result
 
-def isPalindrome?(num)
+def is_palindrome?(num)
   return (num.to_s.reverse == num.to_s)
 end
 
-def palindromicNumber(digits)
+def palindromic_number(digits)
   return if digits < 1
   largest = 10**digits - 1
   products = []
@@ -33,9 +33,9 @@ def palindromicNumber(digits)
     i += 1
   end
 
-  products.keep_if{|num| isPalindrome?(num)}
+  products.keep_if{|num| is_palindrome?(num)}
   return products.max
 end
 
-p palindromicNumber(3)
+p palindromic_number(3)
 # -> 906609
