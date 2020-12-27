@@ -76,8 +76,13 @@ def getFilesInDir(dir)
 end
 
 def makeLink(files, dirName)
-  raise "Multiple files not implemented." unless files.size == 1
-  return "[#{dirName.to_i}](solutions/#{dirName}/#{files[0]})"
+  if files.size == 0
+    return "#{dirName.to_i}"
+  elsif files.size == 1
+    return "[#{dirName.to_i}](solutions/#{dirName}/#{files[0]})"
+  else
+    return "[#{dirName.to_i}](solutions/#{dirName}/)"
+  end
 end
 
 # takes a name of solution and the solutions,
@@ -86,17 +91,21 @@ end
 def getLink(name, solutions, language = nil)
   name = name.to_i
   if solutions.key?(name)
-    link = solutions[name]
-    extension = link[link.size-3..link.size-2]
-    if !language
-      return link
-    elsif language == "rb" && extension == "rb"
-      return link
-    elsif language == "py" && extension == "py"
-      return link
-    end
+    return solutions[name]
+  else
+    return name
   end
-  return name
+end
+
+def filterSolutions(solutions, language)
+  return solutions unless language
+  def is_valid?(filename, language)
+    extension = filename[filename.size-2..filename.size]
+    return (extension == language)
+  end
+
+  solutions.keep_if { |filename| is_valid?(filename, language) }
+  return solutions
 end
 
 
@@ -111,6 +120,7 @@ def makeFilledTable(language = nil)
   files = {}
   names.each do |name|
     solutions = getFilesInDir("solutions/#{name}")
+    solutions = filterSolutions(solutions, language)
     files.store(name.to_i, makeLink(solutions, name)) 
   end
 
