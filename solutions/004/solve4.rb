@@ -20,20 +20,20 @@ end
 
 def palindromic_number(digits)
   return if digits < 1
-  largest = 10**digits - 1
+  largest = 10 ** digits - 1
   products = []
 
   i = 0
   while i <= largest
     j = 0
     while j <= largest
-      products.append(j*i)
+      products.append(j * i)
       j += 1
     end
     i += 1
   end
 
-  products.keep_if{|num| is_palindrome?(num)}
+  products.keep_if { |num| is_palindrome?(num) }
   return products.max
 end
 

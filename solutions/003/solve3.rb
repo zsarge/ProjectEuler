@@ -13,7 +13,7 @@ def get_prime_factors(goal)
   i = 1
   while i < (goal)
     i += 1
-    if goal%i == 0
+    if goal % i == 0
       goal /= i
       factors.append(i)
     end

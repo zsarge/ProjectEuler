@@ -12,8 +12,8 @@
 
 total = 0
 
-0.upto(1000 - 1) { |i| 
-	total += i if i % 3 == 0 || i % 5 == 0
+0.upto(1000 - 1) { |i|
+  total += i if i % 3 == 0 || i % 5 == 0
 }
 
 p total

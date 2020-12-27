@@ -18,7 +18,7 @@ def is_divisible?(factor, number)
 end
 
 def is_completely_divisible?(num, range)
-  range.each {|val|
+  range.each { |val|
     # return early at first false
     return false unless is_divisible?(val, num)
   }
@@ -26,15 +26,15 @@ def is_completely_divisible?(num, range)
   return true
 end
 
-# we can make our solution faster be getting rid 
+# we can make our solution faster be getting rid
 # of all of the numbers we don't need to check.
 # For example, if a number is evenly divisible by 10,
 # it is divisible by 5, so we don't need to check 5.
 def prune_range(range)
   range = range.to_a
   range.reverse_each { |factor|
-    range.each { |number| 
-      if is_divisible?(factor, number) && factor != number 
+    range.each { |number|
+      if is_divisible?(factor, number) && factor != number
         range.delete(factor)
       end
     }
@@ -55,6 +55,7 @@ end
 puts get_smallest_evenly_divisible((1..20))
 
 # -> 232792560
+
 
 __END__
 
@@ -84,4 +85,3 @@ def get_smallest_evenly_divisible(range)
 end
 
 p get_smallest_evenly_divisible((1..10))
-

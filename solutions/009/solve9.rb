@@ -22,27 +22,30 @@ SUM = 1_000
 class Triples
   def initialize(m, n)
     raise "invalid inital value" unless m > n
-    @a = m**2 - n**2
-    @b = 2*m*n
-    @c = m**2 + n**2
+    @a = m ** 2 - n ** 2
+    @b = 2 * m * n
+    @c = m ** 2 + n ** 2
   end
+
   def sum
     return @a + @b + @c
   end
+
   def valid?
-    if @a**2 + @b**2 == @c**2
+    if @a ** 2 + @b ** 2 == @c ** 2
       if self.sum == SUM
         return true
       end
     end
     return false
   end
+
   def solve
-    return @a*@b*@c
+    return @a * @b * @c
   end
 end
 
-# theoretically O(n),
+# theoretically O(n^2),
 # but in practice it returns early.
 (2..SUM).each do |m|
   (1..SUM).each do |n|
@@ -50,8 +53,8 @@ end
     triples = Triples.new(m, n)
     if triples.valid?
       p triples.solve
-      return 
-    end 
+      return
+    end
   end
 end
 
