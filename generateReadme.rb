@@ -83,16 +83,22 @@ end
 # takes a name of solution and the solutions,
 # and returns either a link to the solution
 # or the name if the solution doesn't exist
-def getLink(name, solutions)
+def getLink(name, solutions, language = nil)
   name = name.to_i
   if solutions.key?(name)
-    return solutions[name]
-  else
-    return name
+    link = solutions[name]
+    extension = link[link.size-3..link.size-2]
+    if !language
+      return link
+    elsif language == "rb" && extension == "rb"
+      return link
+    elsif language == "py" && extension == "py"
+      return link
+    end
   end
+  return name
 end
 
-names = getFilesInDir("solutions")
 
 # represent dir as object where
 # dir = {
@@ -100,20 +106,26 @@ names = getFilesInDir("solutions")
 #   folder name as integer => content to go in table cell,
 # }
 
-files = {}
-names.each do |name|
-  solutions = getFilesInDir("solutions/#{name}")
-  files.store(name.to_i, makeLink(solutions, name)) 
+def makeFilledTable(language = nil)  
+  names = getFilesInDir("solutions")
+  files = {}
+  names.each do |name|
+    solutions = getFilesInDir("solutions/#{name}")
+    files.store(name.to_i, makeLink(solutions, name)) 
+  end
+
+  arr = (1..100).to_a
+  arr = arr.map { |num| getLink(num, files, language) }
+  arr = arr.map(&:to_s)
+
+  # Create blank space in header:
+  10.times do arr.prepend(" ") end
+  return  makeTable(arr, 10)
 end
-
-arr = (1..100).to_a
-arr = arr.map { |num| getLink(num, files) }
-arr = arr.map(&:to_s)
-
-# Create blank space in header:
-10.times do arr.prepend(" ") end
-
-TABLE = makeTable(arr, 10)
+# FULL_TABLE = makeTable(arr, 10)
+FULL_TABLE = makeFilledTable()
+PYTHON_TABLE = makeFilledTable("py")
+RUBY_TABLE = makeFilledTable("rb")
 
 # Stop content generation
 # Start writing to file
@@ -137,7 +149,14 @@ Note:
   I did consider reference style links, and they didn't seem much better. 
   Just try and view the formatted table, if you can.
 -->
-#{TABLE}
+#{FULL_TABLE}
+
+## My Ruby solutions:
+#{RUBY_TABLE}
+
+## My Python solutions:
+#{PYTHON_TABLE}
+
 <br>
 I have some scripts set up to make working on problems a smoother experience:
 
