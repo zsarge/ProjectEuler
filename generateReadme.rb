@@ -161,11 +161,7 @@ Note:
 -->
 #{FULL_TABLE}
 
-## My Ruby solutions:
-#{RUBY_TABLE}
-
-## My Python solutions:
-#{PYTHON_TABLE}
+[[View solutions filtered by language used]](solutionsByLanguages.md)
 
 <br>
 I have some scripts set up to make working on problems a smoother experience:
@@ -179,6 +175,19 @@ Code by [Zack Sargent](https://github.com/zsarge).
 "
 
 File.write("README.md", content, mode: "w")
+
+individual_tables = "\
+# Solutions, filtered by language:
+
+[[Go back]](README.md)
+
+## My Ruby solutions:
+#{RUBY_TABLE}
+
+## My Python solutions:
+#{PYTHON_TABLE}
+"
+File.write("solutionsByLanguages.md", individual_tables, mode: "w")
 
 # Stop writing to file
 
