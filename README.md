@@ -10,7 +10,8 @@ Note:
 
 > Members found to be spoiling problems beyond #100 will have their accounts locked.
 
-## My solutions:
+## My Project Euler solutions: 
+(Click a number to view the associated solution.)
 <!--- 
   This table is automatically generated and is best viewed with line wrap off.
   I did consider reference style links, and they didn't seem much better. 

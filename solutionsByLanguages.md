@@ -1,6 +1,6 @@
 # Solutions, filtered by language:
 
-[[Go back]](README.md)
+## [[Go back]](README.md)
 
 ## My Ruby solutions:
 |                              |                              |                              |                              |                              |                              |                              |                              |                              |                                |

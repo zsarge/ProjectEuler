@@ -153,7 +153,8 @@ Note:
 
 > Members found to be spoiling problems beyond #100 will have their accounts locked.
 
-## My solutions:
+## My Project Euler solutions: 
+(Click a number to view the associated solution.)
 <!--- 
   This table is automatically generated and is best viewed with line wrap off.
   I did consider reference style links, and they didn't seem much better. 
@@ -179,7 +180,7 @@ File.write("README.md", content, mode: "w")
 individual_tables = "\
 # Solutions, filtered by language:
 
-[[Go back]](README.md)
+## [[Go back]](README.md)
 
 ## My Ruby solutions:
 #{RUBY_TABLE}
