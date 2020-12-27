@@ -7,6 +7,7 @@
 require 'open-uri'
 require 'nokogiri'
 
+# Get text from internet -----
 def getProblemText(num) 
   url = "https://projecteuler.net/problem=#{num}"
   doc = Nokogiri::HTML(URI.open(url))
@@ -14,13 +15,18 @@ def getProblemText(num)
   return content.text.gsub("\r","").gsub("\n", "\n# ").chomp
 end
 
+# Take input ----------------
 problemNumber = ""
+extension = ""
 
 if ARGV.length == 0
   puts "enter the challenge number"
   problemNumber = gets.chomp
 
-  puts "create #{problemNumber}? (y/n)"
+  puts "enter the file extension"
+  extension = gets.chomp
+
+  puts "create solve#{problemNumber}.#{extension}? (y/n)"
   input = ""
 
   while input.downcase.count("yn") <= 0 
@@ -28,20 +34,37 @@ if ARGV.length == 0
   end
 
   return if input.downcase.count("n") >= 1
+elsif ARGV.length == 1
+  puts "Malformed input. Please have both a number and an extension."
+  puts "For example: "
+  puts "`ruby addSolution.rb 1 py` will create `./solutions/001/solve1.py`"
+  exit(1)
 else
   problemNumber = ARGV[0]
+  extension = ARGV[1]
 end
 
-filename = "solve#{problemNumber}.rb"
+if extension == ""
+  extension = rb
+end
+
+# Create file ---------------
+unless File.directory?("solutions")
+  puts "no solutions directory found. are you running this from the right directory?" 
+  exit(1)
+end
+filename = "solve#{problemNumber}.#{extension}"
 path = "solutions/#{problemNumber.rjust(3, "0")}"
 
 # do not overwrite existing files
-if File.directory?(path)
-  puts "Directory Exists. Exiting" 
+if File.file?("#{path}/#{filename}")
+  puts "File Exists. Exiting" 
   exit(1)
 end
 
-template = "\
+# pick template based on extension
+if extension == "rb"
+  template = "\
 # https://projecteuler.net/problem=#{problemNumber}
 # Run with: 'ruby #{filename}'
 # using Ruby 2.5.1
@@ -51,8 +74,21 @@ template = "\
 #{getProblemText(problemNumber)}
 puts 'Hello World!'
 "
+elsif extension == "py"
+  template = "\
+# https://projecteuler.net/problem=#{problemNumber}
+# Run with: 'python #{filename}'
+# using Python 3.6.9
+# by Zack Sargent
 
-Dir.mkdir(path)
+# Prompt:
+#{getProblemText(problemNumber)}
+print('Hello World!')
+"
+end
+
+Dir.mkdir(path) unless File.directory?(path)
+
 File.write("#{path}/#{filename}", template, mode: "w")
 
 puts "created #{path}/#{filename}"
