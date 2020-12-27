@@ -40,11 +40,11 @@ products = []
 (0..(number.size - STEP)).each do |n|
   # take a segment
   segment = number[n...n + STEP]
-  # store the multiple
+  # store the product
   products.append(segment.reduce(1) { |acc, i| acc * i.to_i })
 end
 
-# find the largest multiple
+# find the largest product
 p products.max
 
 # -> 23514624000
