@@ -1,5 +1,5 @@
 # This script makes a README.md with links to all my solutions.
-# Run it with 'ruby generateReadme.rb' 
+# Run it with 'ruby generateReadme.rb'
 # This was written using Ruby 2.5.1
 # by Zack Sargent
 
@@ -115,13 +115,13 @@ end
 #   folder name as integer => content to go in table cell,
 # }
 
-def makeFilledTable(language = nil)  
+def makeFilledTable(language = nil)
   names = getFilesInDir("solutions")
   files = {}
   names.each do |name|
     solutions = getFilesInDir("solutions/#{name}")
     solutions = filterSolutions(solutions, language)
-    files.store(name.to_i, makeLink(solutions, name)) 
+    files.store(name.to_i, makeLink(solutions, name))
   end
 
   arr = (1..100).to_a
@@ -132,7 +132,7 @@ def makeFilledTable(language = nil)
   10.times do arr.prepend(" ") end
   return  makeTable(arr, 10)
 end
-# FULL_TABLE = makeTable(arr, 10)
+
 FULL_TABLE = makeFilledTable()
 PYTHON_TABLE = makeFilledTable("py")
 RUBY_TABLE = makeFilledTable("rb")
@@ -145,6 +145,8 @@ content = "\
 
 These are my solutions for various [Project Euler](https://projecteuler.net) problems.
 
+Project Euler is a website that has hundreds of challenges related to writing algorithms to solve problems.
+
 I use Project Euler mainly for programming challenges, but it also is nice for practicing mathematical reasoning.
 
 I hope these solutions may be instructive to those who are interested.
@@ -153,11 +155,11 @@ Note:
 
 > Members found to be spoiling problems beyond #100 will have their accounts locked.
 
-## My Project Euler solutions: 
+## My Project Euler solutions:
 (Click a number to view the associated solution.)
-<!--- 
+<!---
   This table is automatically generated and is best viewed with line wrap off.
-  I did consider reference style links, and they didn't seem much better. 
+  I did consider reference style links, and they didn't seem much better.
   Just try and view the formatted table, if you can.
 -->
 #{FULL_TABLE}

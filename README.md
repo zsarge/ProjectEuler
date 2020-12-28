@@ -2,6 +2,8 @@
 
 These are my solutions for various [Project Euler](https://projecteuler.net) problems.
 
+Project Euler is a website that has hundreds of challenges related to writing algorithms to solve problems.
+
 I use Project Euler mainly for programming challenges, but it also is nice for practicing mathematical reasoning.
 
 I hope these solutions may be instructive to those who are interested.
@@ -10,11 +12,11 @@ Note:
 
 > Members found to be spoiling problems beyond #100 will have their accounts locked.
 
-## My Project Euler solutions: 
+## My Project Euler solutions:
 (Click a number to view the associated solution.)
-<!--- 
+<!---
   This table is automatically generated and is best viewed with line wrap off.
-  I did consider reference style links, and they didn't seem much better. 
+  I did consider reference style links, and they didn't seem much better.
   Just try and view the formatted table, if you can.
 -->
 |                                |                                |                                |                              |                              |                              |                              |                              |                              |                                |
