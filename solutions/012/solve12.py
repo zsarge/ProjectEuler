@@ -43,3 +43,4 @@ def get_triangle_number_with_divisors(goal):
     return triangle_number
 
 print(get_triangle_number_with_divisors(500))
+# -> 76576500 (takes about 15 seconds)
