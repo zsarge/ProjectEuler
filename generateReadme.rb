@@ -98,8 +98,10 @@ def getLink(name, solutions, language = nil)
 end
 
 def filterSolutions(solutions, language)
-  return solutions unless language
   def is_valid?(filename, language)
+    return false if filename.downcase().include?(".txt")
+    return false if filename.downcase().include?(".swp")
+    return true unless language
     extension = filename[filename.size-2..filename.size]
     return (extension == language)
   end
