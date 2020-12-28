@@ -12,4 +12,4 @@ def digits(power):
     return sum(map(int, list(str(2**power))))
 
 print(digits(1_000))
-
+# -> 1366
