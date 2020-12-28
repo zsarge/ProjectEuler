@@ -37,4 +37,5 @@ for i in range(round(GOAL // 1.5), GOAL + 1):
 
 print(max_num)
 # -> 837799 (This takes about 10 seconds)
-
+# This can be optimized by storing the values calculated
+# so this does recalculate values. I do not do this.
