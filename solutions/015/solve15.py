@@ -21,7 +21,7 @@ def binomial_coefficient(n: int, k: int) -> float:
     return factorial(n) / (factorial(k) * factorial(n - k))
 
 # assume top left is (0,0)
-def lattice_distance(n: int, k: int) -> float:
-    return binomial_coefficient(n + k, n)
+def lattice_distance(n: int, k: int) -> int:
+    return int(binomial_coefficient(n + k, n))
 
 print(lattice_distance(20,20))
