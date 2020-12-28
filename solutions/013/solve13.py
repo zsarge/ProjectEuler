@@ -111,4 +111,4 @@ numbers = [
 ]
 
 print(str(sum(numbers))[:10])
-
+# -> 5537376230
