@@ -144,6 +144,7 @@ end
 FULL_TABLE = makeFilledTable()
 PYTHON_TABLE = makeFilledTable("py")
 RUBY_TABLE = makeFilledTable("rb")
+HASKELL_TABLE = makeFilledTable("hs")
 
 # Stop content generation
 # Start writing to file
@@ -197,6 +198,9 @@ individual_tables = "\
 
 ## My Python solutions:
 #{PYTHON_TABLE}
+
+## My Haskell solutions:
+#{HASKELL_TABLE}
 "
 File.write("solutionsByLanguages.md", individual_tables, mode: "w")
 
