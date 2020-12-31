@@ -97,10 +97,10 @@ elsif extension == "hs"
 -- using Haskell with GHC 8.0.2
 -- by Zack Sargent
 
--- Prompt:
-{-
+{- Prompt:
 #{getProblemText(problemNumber, extension)}
 -}
+
 main = putStrLn \"Hello World\"
 "
 end
