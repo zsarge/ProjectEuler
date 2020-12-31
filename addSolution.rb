@@ -8,11 +8,16 @@ require 'open-uri'
 require 'nokogiri'
 
 # Get text from internet -----
-def getProblemText(num) 
+def getProblemText(num, language) 
   url = "https://projecteuler.net/problem=#{num}"
   doc = Nokogiri::HTML(URI.open(url))
   content = doc.css('div.problem_content')
-  return content.text.gsub("\r","").gsub("\n", "\n# ").chomp
+  if language == "hs" 
+    comment = "" 
+  else 
+    comment = "# " 
+  end
+  return content.text.gsub("\r","").gsub("\n", "\n#{comment}").chomp
 end
 
 # Take input ----------------
@@ -71,7 +76,7 @@ if extension == "rb"
 # by Zack Sargent
 
 # Prompt:
-#{getProblemText(problemNumber)}
+#{getProblemText(problemNumber, extension)}
 puts 'Hello World!'
 "
 elsif extension == "py"
@@ -82,8 +87,21 @@ elsif extension == "py"
 # by Zack Sargent
 
 # Prompt:
-#{getProblemText(problemNumber)}
+#{getProblemText(problemNumber, extension)}
 print('Hello World!')
+"
+elsif extension == "hs"
+  template = "\
+-- https://projecteuler.net/problem=#{problemNumber}
+-- Run with: 'ghc #{filename} && ./#{filename[0..filename.size-4]}' or 'runhaskell #{filename}'
+-- using Haskell with GHC 8.0.2
+-- by Zack Sargent
+
+-- Prompt:
+{-
+#{getProblemText(problemNumber, extension)}
+-}
+main = putStrLn \"Hello World\"
 "
 end
 

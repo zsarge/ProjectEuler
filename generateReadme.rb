@@ -99,9 +99,15 @@ end
 
 def filterSolutions(solutions, language)
   def is_valid?(filename, language)
-    return false if filename.downcase().include?(".txt")
-    return false if filename.downcase().include?(".swp")
-    return true unless language
+    lower_filename = filename.downcase()
+    return false if lower_filename.include?(".txt")
+    return false if lower_filename.include?(".swp")
+    return false if lower_filename.include?(".hi")
+    return false if lower_filename.include?(".o")
+    # do not keep compiled files
+    return false unless lower_filename.include?(".")
+    # keep if no language is specified
+    return true unless language 
     extension = filename[filename.size-2..filename.size]
     return (extension == language)
   end
