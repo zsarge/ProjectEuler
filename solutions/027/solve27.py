@@ -52,8 +52,8 @@ def number_of_primes(a: int, b: int) -> int:
 
 LIMIT = 1_000
 highest = 0
-A = 0
-B = 0
+max_a = 0
+max_b = 0
 
 # I chose an arbitrary limit of -100
 # as the lower bound. Theoretically,
@@ -63,9 +63,9 @@ for a in range(-100, LIMIT):
         num = number_of_primes(a,b)
         highest = max(highest, num)
         if num == highest:
-            A = a
-            B = b
+            max_a = a
+            max_b = b
 
-print(A*B)
+print(max_a * max_b)
 # -> -59231 (takes ~4 seconds)
 
