@@ -15,6 +15,7 @@
 # The proper divisors of 284 are 1, 2, 4, 71 and 142; so d(284) = 220.
 # Evaluate the sum of all the amicable numbers under 10_000.
 
+# this is d(n) from the prompt.
 def get_sum_of_divisors(num: int) -> int:
     if num < 2:
         return num
