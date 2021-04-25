@@ -12,7 +12,7 @@ def getProblemText(num, language)
   url = "https://projecteuler.net/problem=#{num}"
   doc = Nokogiri::HTML(URI.open(url))
   content = doc.css('div.problem_content')
-  if language == "hs" 
+  if language == "hs" || language == "java"
     comment = "" 
   else 
     comment = "# " 
@@ -102,6 +102,25 @@ elsif extension == "hs"
 -}
 
 main = putStrLn \"Hello World\"
+"
+elsif extension == "java"
+  template = "\
+// https://projecteuler.net/problem=#{problemNumber}
+// Run with: 'javac #{filename} && java Solve#{problemNumber}'
+// using openjdk version 11.0.10 and javac 11.0.10
+// by Zack Sargent
+
+/* Prompt:
+
+#{getProblemText(problemNumber, extension)}
+*/
+
+class Solve#{problemNumber} {
+    public static void main(String[] args) {
+        System.out.println(\"Hello, World!\"); 
+    }
+}
+
 "
 end
 

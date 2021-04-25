@@ -104,11 +104,12 @@ def filterSolutions(solutions, language)
     return false if lower_filename.include?(".swp")
     return false if lower_filename.include?(".hi")
     return false if lower_filename.include?(".o")
+    return false if lower_filename.include?(".class")
     # do not keep compiled files
     return false unless lower_filename.include?(".")
     # keep if no language is specified
     return true unless language 
-    extension = filename[filename.size-2..filename.size]
+    extension = filename[filename.size-language.size..filename.size]
     return (extension == language)
   end
 
@@ -145,6 +146,7 @@ FULL_TABLE = makeFilledTable()
 PYTHON_TABLE = makeFilledTable("py")
 RUBY_TABLE = makeFilledTable("rb")
 HASKELL_TABLE = makeFilledTable("hs")
+JAVA_TABLE = makeFilledTable("java")
 
 # Stop content generation
 # Start writing to file
@@ -201,6 +203,10 @@ individual_tables = "\
 
 ## My Haskell solutions:
 #{HASKELL_TABLE}
+
+## My Java solutions:
+#{JAVA_TABLE}
+
 "
 File.write("solutionsByLanguages.md", individual_tables, mode: "w")
 
