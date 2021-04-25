@@ -15,6 +15,11 @@
 # Which starting number, under one million, produces the longest chain?
 # NOTE: Once the chain starts the terms are allowed to go above one million.
 
+# numba is only used to improve performance.
+# remove lines 20 and 22 if you don't want it.
+from numba import njit
+
+@njit
 def collatz_sequence(n: int, length: int) -> int:
     length += 1
     if n == 1:
@@ -36,6 +41,4 @@ for i in range(round(GOAL // 1.5), GOAL + 1):
         max_num = i
 
 print(max_num)
-# -> 837799 (This takes about 10 seconds)
-# This can be optimized by storing the values calculated
-# so this does recalculate values. I do not do this.
+# -> 837799 
