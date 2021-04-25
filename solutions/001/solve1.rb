@@ -10,12 +10,5 @@
 #
 # Find the sum of all the multiples of 3 or 5 below 1000.
 
-total = 0
-
-0.upto(1000 - 1) { |i|
-  total += i if i % 3 == 0 || i % 5 == 0
-}
-
-p total
-
+p (0...1000).select{|i| i % 3 == 0 or i % 5 == 0}.sum
 # -> 233168
