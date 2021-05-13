@@ -151,5 +151,6 @@ class Solve28 {
 	public static void main(String[] args) {
 		Spiral spiral = new Spiral(1001);
 		System.out.println(spiral.getSumOfDiagonals());
+		// -> 669171001
 	}
 }
