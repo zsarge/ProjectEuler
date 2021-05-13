@@ -8,14 +8,14 @@ require 'open-uri'
 require 'nokogiri'
 
 # Get text from internet -----
-def getProblemText(num, language) 
+def getProblemText(num, language)
   url = "https://projecteuler.net/problem=#{num}"
   doc = Nokogiri::HTML(URI.open(url))
   content = doc.css('div.problem_content')
   if language == "hs" || language == "java"
-    comment = "" 
-  else 
-    comment = "# " 
+    comment = ""
+  else
+    comment = "# "
   end
   return content.text.gsub("\r","").gsub("\n", "\n#{comment}").chomp
 end
@@ -34,7 +34,7 @@ if ARGV.length == 0
   puts "create solve#{problemNumber}.#{extension}? (y/n)"
   input = ""
 
-  while input.downcase.count("yn") <= 0 
+  while input.downcase.count("yn") <= 0
     input = gets.chomp
   end
 
@@ -55,7 +55,7 @@ end
 
 # Create file ---------------
 unless File.directory?("solutions")
-  puts "no solutions directory found. are you running this from the right directory?" 
+  puts "no solutions directory found. are you running this from the right directory?"
   exit(1)
 end
 filename = "solve#{problemNumber}.#{extension}"
@@ -63,7 +63,7 @@ path = "solutions/#{problemNumber.rjust(3, "0")}"
 
 # do not overwrite existing files
 if File.file?("#{path}/#{filename}")
-  puts "File Exists. Exiting" 
+  puts "File Exists. Exiting"
   exit(1)
 end
 
@@ -117,7 +117,7 @@ elsif extension == "java"
 
 class Solve#{problemNumber} {
     public static void main(String[] args) {
-        System.out.println(\"Hello, World!\"); 
+        System.out.println(\"Hello, World!\");
     }
 }
 

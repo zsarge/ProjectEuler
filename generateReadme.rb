@@ -108,7 +108,7 @@ def filterSolutions(solutions, language)
     # do not keep compiled files
     return false unless lower_filename.include?(".")
     # keep if no language is specified
-    return true unless language 
+    return true unless language
     extension = filename[filename.size-language.size..filename.size]
     return (extension == language)
   end
@@ -160,7 +160,7 @@ Project Euler is a website that has hundreds of challenges related to writing al
 
 **Disclaimer:**
 
-Not all of these solutions are particularly good. My goal is to practice solving the problems myself, not to practice implementing other people's solutions. 
+Not all of these solutions are particularly good. My goal is to practice solving the problems myself, not to practice implementing other people's solutions.
 
 **Note:**
 
