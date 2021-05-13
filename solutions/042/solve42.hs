@@ -29,19 +29,17 @@ triangleNumbers :: [Int]
 triangleNumbers = [triangleNumber x | x <- [1..]]
 
 letterValue :: Char -> Int
-letterValue char = (elemIndices char ['A'..'Z'])!!0 + 1
+letterValue char = (elemIndices char ['A'..'Z']) !! 0 + 1
 
 wordValue :: String -> Int
 wordValue word = sum $ map letterValue word
 
 isTriangleNumber :: Int -> Bool
-isTriangleNumber x = isTriangleNumber' x 0
-
-isTriangleNumber' :: Int -> Int -> Bool
-isTriangleNumber' x i
-  | x == triangleNumbers !! i = True
-  | x <  triangleNumbers !! i = False
-  | otherwise = isTriangleNumber' x (i + 1)
+isTriangleNumber x = check x 0
+    where check x i
+            | x == triangleNumbers !! i = True
+            | x <  triangleNumbers !! i = False
+            | otherwise = check x (i + 1)
 
 isTriangleWord :: String -> Bool
 isTriangleWord word = isTriangleNumber (wordValue word)
