@@ -137,8 +137,6 @@ def makeFilledTable(language = nil)
   arr = arr.map { |num| getLink(num, files, language) }
   arr = arr.map(&:to_s)
 
-  # Create blank space in header:
-  10.times do arr.prepend(" ") end
   return  makeTable(arr, 10)
 end
 
