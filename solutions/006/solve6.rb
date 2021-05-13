@@ -13,16 +13,9 @@
 # Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum.
 #
 
-class Array
-  def sum
-    self.inject(0, :+)
-  end
-end
-
 p (1..100).to_a.sum ** 2 - (1..100).map { |n| n ** 2 }.sum
 
 # -> 25164150
-
 
 __END__
 # Explanation:
