@@ -11,7 +11,7 @@
 def get_prime_factors(goal)
   factors = []
   i = 1
-  while i < (goal)
+  while i < goal
     i += 1
     if goal % i == 0
       goal /= i
@@ -22,5 +22,4 @@ def get_prime_factors(goal)
 end
 
 p get_prime_factors(600851475143).last
-
 # -> 6857
