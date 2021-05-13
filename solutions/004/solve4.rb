@@ -23,14 +23,10 @@ def palindromic_number(digits)
   largest = 10 ** digits - 1
   products = []
 
-  i = 0
-  while i <= largest
-    j = 0
-    while j <= largest
+  0.upto(largest+1) do |i|
+    0.upto(largest+1) do |j|
       products.append(j * i)
-      j += 1
     end
-    i += 1
   end
 
   products.keep_if { |num| is_palindrome?(num) }
