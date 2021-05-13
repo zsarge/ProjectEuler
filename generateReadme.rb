@@ -158,11 +158,11 @@ These are my solutions for various [Project Euler](https://projecteuler.net) pro
 
 Project Euler is a website that has hundreds of challenges related to writing algorithms to solve problems.
 
-I use Project Euler mainly for programming challenges, but it also is nice for practicing mathematical reasoning.
+**Disclaimer:**
 
-I hope these solutions may be instructive to those who are interested.
+Not all of these solutions are particularly good. My goal is to practice solving the problems myself, not to practice implementing other people's solutions. 
 
-Note:
+**Note:**
 
 > Members found to be spoiling problems beyond #100 will have their accounts locked.
 
