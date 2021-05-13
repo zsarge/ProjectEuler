@@ -15,7 +15,7 @@
 # 3) Find the largest result
 
 def is_palindrome?(num)
-  return (num.to_s.reverse == num.to_s)
+  num.to_s.reverse == num.to_s
 end
 
 def palindromic_number(digits)
@@ -30,7 +30,7 @@ def palindromic_number(digits)
   end
 
   products.keep_if { |num| is_palindrome?(num) }
-  return products.max
+  products.max
 end
 
 p palindromic_number(3)
