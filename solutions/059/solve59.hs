@@ -33,29 +33,27 @@ solveString :: [Int] -> String -> String
 solveString message key = [solveChar x y | (x,y) <- zip message (cycle key)]
 
 isValid :: String -> Bool
-isValid str = all isValid' (map ord str)
-
-isValid' :: Int -> Bool
-isValid' n = (n < 123) && (n >= 32) && n /= 35 && n /= 33
---                '{'           ' '         '#'        '!'
+isValid str = all valid (map ord str)
+    where valid n = (n < 123) && (n >= 32) && n /= 35 && n /= 33
+      --                '{'           ' '         '#'        '!'
 
 alpha = ['a'..'z']
 possiblePasswords = [a : b : c : [] | a <- alpha, b <- alpha, c <- alpha]
 
 breakCipher :: [Int] -> String
 breakCipher cipherText =
-    let solution = breakCipher' cipherText 0 []
+    let solution = break cipherText 0 []
      in if length solution /= 1
            then error "Solution not found"
-    else solution !! 0
-
-breakCipher' :: [Int] -> Int -> [String] -> [String]
-breakCipher' cipherText index acc
-    | index >= length possiblePasswords = acc
-    | isValid broken = breakCipher' cipherText (index + 1) (broken : acc)
-    | otherwise = breakCipher' cipherText (index + 1) acc
-    where key = possiblePasswords !! index
-          broken = solveString cipherText key
+           -- If the solution is not found, 
+           -- isValid needs to be adjusted to limit more possibilities.
+        else solution !! 0
+            where break cipherText index acc
+                    | index >= length possiblePasswords = acc
+                    | isValid broken = break cipherText (index + 1) (broken : acc)
+                    | otherwise = break cipherText (index + 1) acc
+                    where key = possiblePasswords !! index
+                          broken = solveString cipherText key
 
 main :: IO ()
 main = do
