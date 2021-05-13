@@ -10,7 +10,5 @@
 
 require 'prime'
 
-LIMIT = 2_000_000
-
-p Prime.take_while { |prime| prime < LIMIT }.sum
+p Prime.take_while { |prime| prime < 2_000_000 }.sum
 # -> 142913828922
