@@ -12,14 +12,5 @@ require 'prime'
 
 LIMIT = 2_000_000
 
-sum = 0
-Prime.each do |prime|
-  if prime < LIMIT
-    sum += prime
-  else
-    break
-  end
-end
-
-p sum
+p Prime.take_while { |prime| prime < LIMIT }.sum
 # -> 142913828922
