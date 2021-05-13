@@ -136,7 +136,6 @@ class Spiral {
 
 		// from top right to bottom left
 		for (int x = spiral.length - 1, y = 0; x >= 0; x--, y++) {
-
 			total += spiral[y][x];
 		}
 
