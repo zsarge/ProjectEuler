@@ -70,7 +70,7 @@ end
 # Start content generation
 
 def getFilesInDir(dir)
-  files = Dir.entries(dir)
+  files = Dir.entries(dir).sort
   files = files.drop(2) # drop '.' and '..'
   return files
 end
