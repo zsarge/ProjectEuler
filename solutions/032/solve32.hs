@@ -28,27 +28,30 @@ slice xs i k | i>0 = take (k-i+1) $ drop (i-1) xs
 pandigital n = permutations [1..n]
 example = [3,9,1,8,6,7,2,5,4]
 
-splits list = [split list x y | x <- [3..(length list) - 1], y <- [4..(length list) - 2], x < y]
+-- Maximum bounds:
+---- splits list = [split list x y | x <- [1..(length list) - 1], y <- [1..(length list) - 1], x < y] 
+-- However, by limiting the bounds we split at, we save time and computation:
+splits list = [split list x y | x <- [3..(length list) - 5], y <- [4..(length list) - 4], x < y]
     where split n i j = [front, middle, end]
-            where front = fromDigits $ take i n
-                  middle = fromDigits $ slice n (i+1) j
-                  end = fromDigits $ drop j n
+           where front = fromDigits $ take i n
+                 middle = fromDigits $ slice n (i+1) j
+                 end = fromDigits $ drop j n
 
-validProducts' :: [[Integer]] -> Integer
-validProducts' xss = 
-    let products = (filter valid xss) 
-     in if length products >= 1 then
-          product (head products)
-        else 0
-    where valid (front:middle:end:_) = front * middle == end
-          product (_:_:end:_) = end
+validProducts n = 
+    let extractAllFrom xs = map extractProduct xs
+        combos = map splits (pandigital n)
+     in filter (\x -> x /= 0) (extractAllFrom combos)
+    where
+        extractProduct :: [[Integer]] -> Integer
+        extractProduct xs = 
+            let products = (filter valid xs) 
+             in if length products >= 1 then
+                                        product (head products)
+                else 0
+                    where valid (front:middle:end:_) = front * middle == end
+                          product (_:_:end:_) = end
 
-validProducts = 
-    let allCombos = map splits (pandigital 9)
-        mapAll lll = map validProducts' lll
-     in filter (\x -> not (x==0)) (mapAll allCombos)
-
-main = print $ sum $ nub validProducts
+main = print $ sum $ nub (validProducts 9)
 -- -> 45228
--- This takes over a minute to compute, along with quite a bit of ram
+-- This takes around 13 seconds to compute.
 -- TODO: Optimize this
