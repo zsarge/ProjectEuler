@@ -19,7 +19,6 @@ HINT: Some products can be obtained in more than one way so be sure to only incl
 import Data.List
 
 pandigital n = permutations [1..n]
-example = [3,9,1,8,6,7,2,5,4]
 
 -- https://stackoverflow.com/a/1918515
 fromDigits = foldl addDigit 0
@@ -29,7 +28,7 @@ fromDigits = foldl addDigit 0
 slice xs i k | i>0 = take (k-i+1) $ drop (i-1) xs
 
 -- Maximum bounds:
----- splits list = [split list x y | x <- [1..(length list) - 1], y <- [1..(length list) - 1], x < y] 
+---- splits list = [split list x y | x <- [1..(length list)], y <- [2..(length list)], x < y] 
 -- However, by limiting the bounds we split at, we save time and computation:
 splits :: [Integer] -> [[Integer]]
 splits list = [split list x y | x <- [3..(length list) - 5], y <- [4..(length list) - 4], x < y]
