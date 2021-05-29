@@ -54,4 +54,6 @@ validPandigitalProducts n =
 
 main = print $ sum $ nub (validPandigitalProducts 9)
 -- -> 45228
--- This takes around 13 seconds to compute.
+-- Note:
+---- runhaskell takes about 13 seconds, but, if you compile it,
+---- running the binary takes about 2 seconds.
