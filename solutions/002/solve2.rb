@@ -11,6 +11,7 @@
 # By considering the terms in the Fibonacci sequence whose values do not exceed four million,
 # find the sum of the even-valued terms.
 
+# start fib sequence
 arr = [0, 1]
 
 # generate fib numbers while less than 4 million
@@ -18,13 +19,9 @@ while arr[arr.size - 1] < 4_000_000
   arr.append(arr[arr.size - 2] + arr[arr.size - 1])
 end
 
-# Remove [0, 1] from beginning
-arr = arr.drop(2)
-
 # filter for even values
 arr = arr.reject { |i| i % 2 != 0 }
 
 # sum all even values
 p arr.reduce(0) { |acc, num| acc + num }
-
 # -> 4613732
