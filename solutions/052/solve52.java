@@ -25,15 +25,15 @@ class Solve52 {
 
     private static String uniqDigits(long i, long x) {
         List<Character> list = sort(i * x).chars()
-										  .mapToObj(e -> (char)e)
-										  .collect(Collectors.toList());
+                                          .mapToObj(e -> (char)e)
+                                          .collect(Collectors.toList());
         list = list.stream()
-				   .distinct()
-				   .collect(Collectors.toList());
+                   .distinct()
+                   .collect(Collectors.toList());
 
         return list.stream()
-				   .map(String::valueOf)
-				   .collect(Collectors.joining());
+                   .map(String::valueOf)
+                   .collect(Collectors.joining());
     }
 
     private static boolean check(long x) {
