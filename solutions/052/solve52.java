@@ -16,14 +16,14 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 class Solve52 {
-    private static String sort(long i) {
-        String str = Long.toString(i);
+    private static String sort(int i) {
+        String str = Integer.toString(i);
         char[] chars = str.toCharArray();
         Arrays.sort(chars);
         return new String(chars);
     }
 
-    private static String uniqDigits(long i, long x) {
+    private static String uniqDigits(int i, int x) {
         List<Character> list = sort(i * x).chars()
                                           .mapToObj(e -> (char)e)
                                           .collect(Collectors.toList());
@@ -36,16 +36,16 @@ class Solve52 {
                    .collect(Collectors.joining());
     }
 
-    private static boolean check(long x) {
+    private static boolean check(int x) {
         String ref = uniqDigits(2, x);
-        return (ref.equals(uniqDigits(3,x)) && 
-                ref.equals(uniqDigits(4,x)) && 
-                ref.equals(uniqDigits(5,x)) && 
-                ref.equals(uniqDigits(6,x)));
+        return (ref.equals(uniqDigits(3, x)) && 
+                ref.equals(uniqDigits(4, x)) && 
+                ref.equals(uniqDigits(5, x)) && 
+                ref.equals(uniqDigits(6, x)));
     }
 
     public static void main(String[] args) {
-        long x = 1;
+        int x = 1;
         while (!check(x)) {
             x++;
         }
