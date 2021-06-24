@@ -22,13 +22,12 @@ isPentagonal x = isInt $ pentagonalIndex x
           -- ^^ I reversed the pentagonal number formula
           isInt x = x == fromInteger (round x)
 
-candidates :: [(Bool, Double)]
-candidates = filter (\(n, _) -> n==True) [(valid x y, abs (x-y)) | x <- (take w pentagonalNumbers), y <- (take w pentagonalNumbers)]
+candidates = [abs (x-y) | x <- (take w pentagonalNumbers), y <- (take w pentagonalNumbers), valid x y]
     where valid x y = isPentagonal (x+y) && isPentagonal (x-y)
           w = 2200 -- I'm not sure how to design this without a limit
 
 main :: IO ()
-main = print $ round $ snd $ head candidates
+main = print $ round $ head candidates
 -- -> 5482660
 -- (I would recommend compiling this one)
 
