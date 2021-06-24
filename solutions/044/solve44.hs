@@ -22,6 +22,7 @@ isPentagonal x = isInt $ pentagonalIndex x
           -- ^^ I reversed the pentagonal number formula
           isInt x = x == fromInteger (round x)
 
+candidates :: [Double]
 candidates = [abs (x-y) | x <- (take w pentagonalNumbers), y <- (take w pentagonalNumbers), valid x y]
     where valid x y = isPentagonal (x+y) && isPentagonal (x-y)
           w = 2200 -- I'm not sure how to design this without a limit
