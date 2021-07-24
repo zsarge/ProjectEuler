@@ -86,9 +86,18 @@ elsif extension == "py"
 # using Python 3.6.9
 # by Zack Sargent
 
-# Prompt:
+\"\"\"
+Prompt:
+
 #{getProblemText(problemNumber, extension)}
-print('Hello World!')
+\"\"\"
+
+def main():
+  print('Hello World!')
+
+if __name__ == \"__main__\":
+  main()
+
 "
 elsif extension == "hs"
   template = "\
