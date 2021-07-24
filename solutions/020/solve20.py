@@ -12,5 +12,5 @@
 
 from math import factorial
 
-print(sum(map(int, (list(str(factorial(100)))))))
+print(sum(map(int, list(str(factorial(100))))))
 # -> 648
