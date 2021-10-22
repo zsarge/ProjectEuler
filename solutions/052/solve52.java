@@ -24,16 +24,11 @@ class Solve52 {
     }
 
     private static String uniqDigits(int i, int x) {
-        List<Character> list = sort(i * x).chars()
-                                          .mapToObj(e -> (char)e)
-                                          .collect(Collectors.toList());
-        list = list.stream()
-                   .distinct()
-                   .collect(Collectors.toList());
-
-        return list.stream()
-                   .map(String::valueOf)
-                   .collect(Collectors.joining());
+        return sort(i * x).chars()
+            .mapToObj(e -> (char)e)
+            .distinct()
+            .map(String::valueOf)
+            .collect(Collectors.joining());
     }
 
     private static boolean check(int x) {
