@@ -36,7 +36,7 @@ class Integer
 end
 
 def produces_palindrome?(i)
-  0.upto(50) do
+  50.times do
     i += i.reverse
     return true if i == i.reverse
   end
