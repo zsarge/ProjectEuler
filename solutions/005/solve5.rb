@@ -43,16 +43,13 @@ def prune_range(range)
 end
 
 def get_smallest_evenly_divisible(range)
-  range = prune_range range
-  step = 2520 # = get_smallest_evenly_divisible((1..range.last / 2))
-  i = step
-  while !is_completely_divisible?(i, range)
-    i += step
-  end
-  return i
+  range = prune_range(range)
+  increase = 2520 # = get_smallest_evenly_divisible(1..10)
+
+  (increase..).step(increase).find{|i| is_completely_divisible?(i, range)}
 end
 
-puts get_smallest_evenly_divisible((1..20))
+puts get_smallest_evenly_divisible(1..20)
 
 # -> 232792560
 
